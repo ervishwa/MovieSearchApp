@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useContext } from 'react'
+import Home from './Page/Home'
+import { Routes, Route } from "react-router-dom"
+import MovieDetail from './Page/MovieDetail'
+import { AppContext } from './Components/Context'
+import "./App.css"
 function App() {
+  // const getdata = ()=>{
+  //   fetch("http://www.omdbapi.com/?i=tt3896198&apikey=70d30964").
+  //   then(res => res.json()).
+  //   then(res => console.log(res));
+  //   console.log("function call")
+  // }
+  // useContext(()=>{
+  //    getdata();
+  //    console.log("hai")
+  //    },[])
+
+  //  console.log("haiaiaiaia")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    
+    <Routes>
+      <Route path='/' element={<Home></Home>}></Route>
+      <Route path='movie/:id' element={<MovieDetail></MovieDetail>}></Route>
+      <Route path='*' element={<h1>Error occured</h1>}></Route>
+    </Routes>
+    
+    
+    </>
+  )
 }
 
-export default App;
+export default App
